@@ -43,6 +43,8 @@ cube([barX+((brrOD+1)*2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);
             
 //X rail attachment mount holes
 
+    //conflict with bearing bolt hole
+
 translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2),0,-(1+boltD)/2])
 rotate([-90,0,0])
     cylinder(d=boltD, h=bmountZ);
