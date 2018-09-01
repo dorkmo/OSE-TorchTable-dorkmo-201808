@@ -16,14 +16,16 @@ translate([0,0,-(1+boltD)])
     cube([(bmountX/2)+((barX+(bmountGap*2))/2),X2X,(bmountZ-(1+boltD))/2+(1+boltD)]);
 
 //bearing holes
+////upper X bearing hole
 translate([0,(X2X-(brrOD+(bmountbrrGap*2)))/2,barZ-brrT-sprOD-0.5])
 cube([barX+((brrOD+1)*2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);    
-    
-translate([(bmountX/2)-(brrT+(bmountbrrGap*2))/2,((brrOD/2)+1)-((brrOD+(bmountbrrGap*2))/2),barZ])    
-cube([brrT+(bmountbrrGap*2),brrOD+(bmountbrrGap*2),(1+boltD)]);    
+////near Y bearing hole  - need to calculate cube Z   
+translate([(bmountX/2)-(brrT+(bmountbrrGap*2))/2,((brrOD/2)+1)-((brrOD+(bmountbrrGap*2))/2),barZ])
+cube([brrT+(bmountbrrGap*2),brrOD+(bmountbrrGap*2),bmountZ-barZ-(1+boltD)]);    
+////far Y bearing hole
 translate([(bmountX/2)-(brrT+(bmountbrrGap*2))/2,bmountY-(brrOD/2)-1-((brrOD+(bmountbrrGap*2))/2),barZ])    
-cube([brrT+(bmountbrrGap*2),brrOD+(bmountbrrGap*2),(1+boltD)]);        
-
+cube([brrT+(bmountbrrGap*2),brrOD+(bmountbrrGap*2),bmountZ-barZ-(1+boltD)]);        
+////lower X bearing hole
 translate([0,(X2X-(brrOD+(bmountbrrGap*2)))/2,0.5])
 cube([barX+((brrOD+1)*2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);    
 
