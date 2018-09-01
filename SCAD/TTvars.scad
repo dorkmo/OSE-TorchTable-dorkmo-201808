@@ -1,4 +1,6 @@
 
+$fn=8; //default 36
+
 barX=0.25;
 barZ=6;
 barLY=108;
@@ -36,7 +38,6 @@ stepBoreL=0.94488189;    //24mm
 pullP=1.253;       //OD of belt around pully GT2 20T ??
 pullH=0;            //Height of pulley
 
-$fn=36;
 
 //calculated
 
