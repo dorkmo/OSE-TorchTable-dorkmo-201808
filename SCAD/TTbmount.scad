@@ -16,32 +16,49 @@ translate([0,0,-(1+boltD)])
     cube([(bmountX/2)+((barX+(bmountGap*2))/2),X2X,(bmountZ-(1+boltD))/2+(1+boltD)]);
 
 //bearing holes
-////upper X bearing hole
-translate([0,(X2X-(brrOD+(bmountbrrGap*2)))/2,barZ-brrT-sprOD-0.5])
-cube([barX+((brrOD+1)*2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);    
+////center X bearing hole
+translate([(bmountX/2),(X2X-(brrOD+(bmountbrrGap*2)))/2,barZ-brrT-sprOD-0.5])
+cube([(bmountX/2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);    
+////near lower X bearing hole
+translate([(bmountX/2),(brrOD/2)+1+(brrOD/2)+0.25+(brrID/2)-((brrOD+(bmountbrrGap*2))/2),0.5])
+cube([(bmountX/2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);
+////far lower X bearing hole
+translate([(bmountX/2),bmountY-(brrOD/2)-1-(brrOD/2)-0.25-(brrID/2)-((brrOD+(bmountbrrGap*2))/2),0.5])
+cube([(bmountX/2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);    
 ////near Y bearing hole  - need to calculate cube Z   
 translate([(bmountX/2)-(brrT+(bmountbrrGap*2))/2,((brrOD/2)+1)-((brrOD+(bmountbrrGap*2))/2),barZ])
 cube([brrT+(bmountbrrGap*2),brrOD+(bmountbrrGap*2),bmountZ-barZ-(1+boltD)]);    
 ////far Y bearing hole
 translate([(bmountX/2)-(brrT+(bmountbrrGap*2))/2,bmountY-(brrOD/2)-1-((brrOD+(bmountbrrGap*2))/2),barZ])    
 cube([brrT+(bmountbrrGap*2),brrOD+(bmountbrrGap*2),bmountZ-barZ-(1+boltD)]);        
-////lower X bearing hole
-translate([0,(X2X-(brrOD+(bmountbrrGap*2)))/2,0.5])
-cube([barX+((brrOD+1)*2),brrOD+(bmountbrrGap*2),brrT+(bmountbrrGap*2)]);    
+  
 
 
 //bearing mount holes
+    ////near Y bearing shaft
     translate([0,(brrOD/2)+1,barZ+(brrOD/2)])
     rotate([0,90,0])    
         cylinder(d=brrID, h=bmountX);
+    ////far Y bearing shaft    
     translate([0,bmountY-(brrOD/2)-1,barZ+(brrOD/2)])
     rotate([0,90,0])
         cylinder(d=brrID, h=bmountX);
-    
-    translate([(bmountX/2)-(barX/2)-(brrOD/2),bmountY/2,barZ-brrT-sprOD-0.5-1])    
+    ////near outer X bearing shaft
+    translate([(bmountX/2)-(barX/2)-(brrOD/2),(brrOD/2)+1+(brrOD/2)+0.25+(brrID/2),barZ-brrT-sprOD-0.5-1])   
         cylinder(d=brrID, h=bmountZ-(1+boltD)-(barZ-brrT-sprOD-0.5-1));
-    translate([(bmountX/2)+(barX/2)+(brrOD/2),bmountY/2,-0.25])    
-        #cylinder(d=brrID, h=bmountZ+0.25-(1+boltD));
+    ////far outer X bearing shaft
+    translate([(bmountX/2)-(barX/2)-(brrOD/2),bmountY-(brrOD/2)-1-(brrOD/2)-0.25-(brrID/2),barZ-brrT-sprOD-0.5-1])   
+        cylinder(d=brrID, h=bmountZ-(1+boltD)-(barZ-brrT-sprOD-0.5-1));
+    ////center inner X bearing shaft
+    translate([(bmountX/2)+(barX/2)+(brrOD/2),bmountY/2,barZ-brrT-sprOD-0.5-1])    
+        cylinder(d=brrID, h=bmountZ-(1+boltD)-(barZ-brrT-sprOD-0.5-1));
+    ////near inner X bearing shaft
+    translate([(bmountX/2)+(barX/2)+(brrOD/2),(brrOD/2)+1+(brrOD/2)+0.25+(brrID/2),-0.25])    
+        cylinder(d=brrID, h=bmountZ+0.25-(1+boltD));
+    ////far inner X bearing shaft
+    translate([(bmountX/2)+(barX/2)+(brrOD/2),bmountY-(brrOD/2)-1-(brrOD/2)-0.25-(brrID/2),-0.25])    
+        cylinder(d=brrID, h=bmountZ+0.25-(1+boltD));
+        
             
 //X rail attachment mount holes
 
