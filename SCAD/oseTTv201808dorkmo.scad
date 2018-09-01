@@ -2,6 +2,7 @@ include <TTvars.scad>;
 
 use <TTbmount.scad>;
 use <TTxmount.scad>;
+use <TTx2mount.scad>;
 
 //TODO
 ////*belt attachment point
@@ -9,6 +10,7 @@ use <TTxmount.scad>;
 ////**steppers mounted in corners
 ////*Z motion. can "OSE Universal Axis" be mounted?
 ////*TTxmount.scad's mirror should be its own part
+////**should also remove stepper mount holes, add idler mount where needed
 
 //Y flat bar origin
 translate([-barX/2,0,0])
@@ -25,8 +27,7 @@ translate([0,20,0]){
 TTbmount();
 TTxmount();
 translate([0,X2X,0])
-mirror([0,1,0])
-TTxmount();
+TTx2mount();
 
 //Y slider group far
 translate([Y2YA,0,0]){
@@ -34,8 +35,7 @@ mirror([1,0,0]){
 TTbmount();
 TTxmount();
 translate([0,X2X,0])
-mirror([0,1,0])
-TTxmount();
+TTx2mount();
 } //end mirror
 } //end translate
 
@@ -54,8 +54,7 @@ rotate([0,0,90]){
 TTbmount();
 //TTxmount();
 //translate([0,X2X,0])
-//mirror([0,1,0])
-//TTxmount();
+//TTx2mount();
 } //end group rotate
 } //end group translate
 
@@ -66,8 +65,7 @@ rotate([0,0,90]){
 TTbmount();
 //TTxmount();
 //translate([0,X2X,0])
-//mirror([0,1,0])
-//TTxmount();
+//TTx2mount();
     } //end mirror
 } //end group rotate
 } //end group translate
@@ -79,9 +77,9 @@ TTbmount();
 
 //test
 translate([Y2YA,0,0]){
-mirror([1,0,0]){
+    mirror([1,0,0]){
 TTxmount();
-} //end mirror
+    } //end mirror
 } //end translate
 
 TTxmount();
