@@ -40,7 +40,8 @@ $fn=36;
 
 //calculated
 
-Y2Y=barLX+0.5;
+Y2Y=barLX+0.0;
+Y2YA=Y2Y+(((((barX+(bmountGap*2)))/2)+0.5)*2); //center to center barL
 X2X=8; //distance between X rails
 
 bmountX=barX+((brrOD+1)*2);

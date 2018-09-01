@@ -9,6 +9,7 @@ module TTxmount(){
 difference(){    
 translate([(barX+(bmountGap*2))/2,-(angX+0.75),-(1+boltD)])
 cube([((bmountX-(barX+(bmountGap*2)))/2),angX+0.75,bmountZ]);    
+//main flat bar cutout
     translate([(((barX+(bmountGap*2)))/2)+0.5,-barX,0])
 cube([((bmountX-(barX+(bmountGap*2)))/2)-0.5,barX,barZ]);
 
