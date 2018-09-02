@@ -12,6 +12,11 @@ angLY=barLY;
 angLX=barLX;
 angR=0.25;
 
+cornerSQ=1.5; //size of square tubing in corners
+cornerSQr=0.125; //radius of square tubing 90s
+cornerT=0.5; //thickness of corner mount walls
+cornerBoltOD=0.5;
+
 boltD=0.5;   // 6mm
 boltL=1.968504;    // 50mm
 

@@ -6,11 +6,13 @@ use <TTx2mount.scad>;
 
 //TODO
 ////*belt attachment point
-////*square tubing corner mounts
+////*square tubing corner mounts. could mount nut/bolt out top to adjust H
 ////**steppers mounted in corners
 ////*Z motion. can "OSE Universal Axis" be mounted?
 ////*TTxmount.scad's mirror should be its own part
 ////**should also remove stepper mount holes, add idler mount where needed
+////***could find idler bearing with the same ID as stepper shaft OD
+////***use same printed part for both
 
 //Y flat bar origin
 translate([-barX/2,0,0])
@@ -75,13 +77,14 @@ TTbmount();
 } //end main Y translate
 
 
-//test
-translate([Y2YA,0,0]){
-    mirror([1,0,0]){
+//corner
+translate([Y2YA-(barX/2),-0.5-(barX+(bmountGap*2))/2,0])
+rotate([0,0,90])
 TTxmount();
-    } //end mirror
-} //end translate
 
-TTxmount();
-translate([((((barX+(bmountGap*2)))/2)+0.5),0.1,0])
-cube([barLX,barX,barZ]);   
+translate([barX/2,-0.5-(barX+(bmountGap*2))/2,0])
+rotate([0,0,90])
+TTx2mount();
+
+//translate([((((barX+(bmountGap*2)))/2)+0.5),0.1,0])
+//cube([barLX,barX,barZ]);   
