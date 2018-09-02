@@ -17,7 +17,8 @@ minkowski(){
     cylinder(r=cornerSQr, h=1);
 }//end minkoski
 //corner bolt hole
-
+translate([(((cornerSQ-(cornerSQr*2))/2)-(cornerSQ-(cornerSQr*2))/2)+((bmountX-(barX+(bmountGap*2)))/2)+((cornerSQ+(cornerT*2))/2),(cornerSQ-(cornerSQr*2)),bmountZ-1])
+cylinder(d=cornerBoltOD, h=1);
 
 }//end difference
 }//end translate

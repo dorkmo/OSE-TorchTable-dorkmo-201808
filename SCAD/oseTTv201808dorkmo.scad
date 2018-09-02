@@ -3,6 +3,7 @@ include <TTvars.scad>;
 use <TTbmount.scad>;
 use <TTxmount.scad>;
 use <TTx2mount.scad>;
+use <TTcorner.scad>;
 
 //TODO
 ////*belt attachment point
@@ -13,6 +14,7 @@ use <TTx2mount.scad>;
 ////**should also remove stepper mount holes, add idler mount where needed
 ////***could find idler bearing with the same ID as stepper shaft OD
 ////***use same printed part for both
+////*add two set screws onto TTxmount to tighten against plate and angle
 
 //Y flat bar origin
 translate([-barX/2,0,0])
@@ -78,9 +80,14 @@ TTbmount();
 
 
 //corner
-translate([Y2YA-(barX/2),-0.5-(barX+(bmountGap*2))/2,0])
+translate([Y2YA-(barX/2),-0.5-(barX+(bmountGap*2))/2,0]){
 rotate([0,0,90])
 TTxmount();
+translate([-(angX+0.75),0,0])    
+rotate([0,0,90])
+mirror([1,0,0])    
+TTcorner();
+}
 
 translate([barX/2,-0.5-(barX+(bmountGap*2))/2,0])
 rotate([0,0,90])
