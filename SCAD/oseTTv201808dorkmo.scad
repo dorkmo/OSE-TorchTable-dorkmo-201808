@@ -1,7 +1,7 @@
 include <TTvars.scad>;
 
 use <TTbmount.scad>;
-use <TTxmount.scad>;
+use <TTxmount3.scad>;
 use <TTx2mount.scad>;
 use <TTcorner.scad>;
 
@@ -14,6 +14,7 @@ use <TTcorner.scad>;
 ////**should also remove stepper mount holes, add idler mount where needed
 ////***could find idler bearing with the same ID as stepper shaft OD
 ////***use same printed part for both
+////**use standard bearing for idler, place inside printed cylinder to match pully OD
 ////*add two set screws onto TTxmount to tighten against plate and angle
 
 //Y flat bar origin

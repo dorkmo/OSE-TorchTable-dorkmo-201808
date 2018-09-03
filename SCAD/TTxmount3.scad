@@ -8,7 +8,7 @@ TTxmount();
 //set screw hole and nut holder
 
 module TTxmount(){
-//translate([(barX+(bmountGap*2))/2,-(angX+0.75),-(1+boltD)]){    
+translate([(barX+(bmountGap*2))/2,-xmountY,-(1+boltD)]){    
 difference(){
 cube([xmountX,xmountY,bmountZ]);    
 //main flat bar cutout
@@ -42,33 +42,42 @@ rotate([-90,0,0])
     
 ///////stepper
 
-//bore
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2),-(angX+0.75),barZ/2])
+//pully hole
+translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(((bmountX-(barX+(bmountGap*2)))/2)/2),barZ/2])
+cube([xmountX,pullH+pullS,pullP+pullS], center=true);
+
+
+translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2),0,barZ/2]){
+////bore
+translate([0,0,0])
 rotate([270,0,0])
-cylinder(d=stepBoreD,h=angX+0.75);
+cylinder(d=stepBoreD,h=xmountY);
+
 
 //translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2),-(angX+0.75),barZ/2])
-//rotate([270,0,0])
+    
 //cylinder(d=pullP,h=angX+0.75);
 
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2),-(angX+0.75),barZ/2])
+////seat
+translate([0,0,0])
 rotate([270,0,0])
 cylinder(d=stepSeatD,h=stepSeatH);
 
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)+(stepBoltX/2),-(angX+0.75),(barZ/2)+(stepBoltX/2)])
+////setpper mount holes
+translate([(stepBoltX/2),0,(stepBoltX/2)])
 rotate([270,0,0])
-cylinder(d=stepBoltD,h=angX+0.75);
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-(stepBoltX/2),-(angX+0.75),(barZ/2)+(stepBoltX/2)])
+cylinder(d=stepBoltD,h=xmountY);
+translate([-(stepBoltX/2),0,(stepBoltX/2)])
 rotate([270,0,0])
-cylinder(d=stepBoltD,h=angX+0.75);
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)+(stepBoltX/2),-(angX+0.75),(barZ/2)-(stepBoltX/2)])
+cylinder(d=stepBoltD,h=xmountY);
+translate([(stepBoltX/2),0,-(stepBoltX/2)])
 rotate([270,0,0])
-cylinder(d=stepBoltD,h=angX+0.75);
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-(stepBoltX/2),-(angX+0.75),(barZ/2)-(stepBoltX/2)])
+cylinder(d=stepBoltD,h=xmountY);
+translate([-(stepBoltX/2),0,-(stepBoltX/2)])
 rotate([270,0,0])
-cylinder(d=stepBoltD,h=angX+0.75);
-
+cylinder(d=stepBoltD,h=xmountY);
+}
 
 } //end difference
-//} //end translate
+} //end translate
 } //end TTxmount

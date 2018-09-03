@@ -1,17 +1,20 @@
 
 $fn=8; //default 36
 
+//flat bar
 barX=0.25;
 barZ=6;
 barLY=108;
 barLX=60;
 
+//angle iron
 angX=1.5;
 angT=0.125;
 angLY=barLY;
 angLX=barLX;
 angR=0.25;
 
+//square tubing
 cornerSQ=1.5; //size of square tubing in corners
 cornerSQr=0.125; //radius of square tubing 90s
 cornerT=0.5; //thickness of corner mount walls
@@ -29,6 +32,7 @@ sprOD=0.25;
 bmountGap=0.125;
 bmountbrrGap=0.125;
 
+//stepper
 stepBoltD=0.11811024;  //3.0mm bolt diameter
 stepBoltHD=0.22362205; //5.68mm head diameter
 stepBoltHH=0.11811024;  //3.0mm head height
@@ -40,9 +44,10 @@ stepX=1.66535433;        //42.3mm stepper square face
 stepBoreD=0.2007874;     //5.1mm shaft bore
 stepBoreL=0.94488189;    //24mm
 
+//pully
 pullP=1.253;       //OD of belt around pully GT2 20T ??
-pullH=0;            //Height of pulley
-
+pullH=0.25;            //Height of pulley ?????
+pullS=0.125;           //pully space
 
 //calculated
 
