@@ -53,3 +53,6 @@ X2X=8; //distance between X rails
 bmountX=barX+((brrOD+1)*2);
 bmountY=X2X;
 bmountZ=barZ+(1+boltD)+(brrOD/2)+(brrID/2)+(0.25)+boltD+(0.5);
+
+xmountX=((bmountX-(barX+(bmountGap*2)))/2)+0;
+xmountY=angX+barX+1.0;
