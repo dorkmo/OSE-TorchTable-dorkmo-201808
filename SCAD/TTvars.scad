@@ -42,7 +42,7 @@ stepSeatD=0.86614173;    //22.0mm
 stepSeatH=0.07874016;    //2.0mm
 stepX=1.66535433;        //42.3mm stepper square face 
 stepBoreD=0.2007874;     //5.1mm shaft bore
-stepBoreL=0.94488189;    //24mm
+stepBoreL=0.787402;    //20mm
 
 //pully
 pullP=1.253;       //OD of belt around pully GT2 20T ??
