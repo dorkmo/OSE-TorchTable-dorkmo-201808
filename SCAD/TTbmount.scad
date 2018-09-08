@@ -9,11 +9,11 @@ translate([0,0,-(1+boltD)])
 cube([bmountX,bmountY,bmountZ]);
 
 //bar hole
-translate([(barX+((brrOD+1)*2)-(barX+(bmountGap*2)))/2,0,0])
+translate([(bmountX/2)-((barX+(bmountGap*2))/2),0,0])
 cube([barX+(bmountGap*2),X2X,barZ+bmountGap]);    
 
 translate([0,0,-(1+boltD)])
-    cube([(bmountX/2)+((barX+(bmountGap*2))/2),X2X,(bmountZ-(1+boltD))/2+(1+boltD)]);
+    cube([(bmountX/2)+((barX+(bmountGap*2))/2),X2X,((bmountZ-(1+boltD))/2)+(1+boltD)]);
 
 //bearing holes
 ////center X bearing hole

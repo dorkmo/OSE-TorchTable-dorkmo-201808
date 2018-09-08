@@ -43,13 +43,15 @@ rotate([-90,0,0])
 ///////stepper
 
 //pully hole
-translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap)),barZ/2])
+translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap)),(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
 cube([xmountX,pullH+pullS,pullP+pullS], center=true);
 
-translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap))-(xmountY/2)+((pullH+pullS)/2)-stepBoreL,barZ/2])
+//stepper face mount
+translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap))-(xmountY/2)+((pullH+pullS)/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
 cube([xmountX,xmountY,stepX], center=true); // should X= xmountX or stepX?
 
-translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2),0,barZ/2]){
+
+translate([xmountX/2,0,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)]){
 ////bore
 translate([0,0,0])
 rotate([270,0,0])

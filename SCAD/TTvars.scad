@@ -27,7 +27,7 @@ brrOD=0.875;
 brrID=0.375;
 brrT=0.28125;
 
-sprOD=0.25;
+sprOD=0.25; //spring? i dont remember wha this is
 
 bmountGap=0.125;
 bmountbrrGap=0.125;
@@ -55,7 +55,8 @@ Y2Y=barLX+0.0;
 Y2YA=Y2Y+(((((barX+(bmountGap*2)))/2)+0.5)*2); //center to center barL
 X2X=8; //distance between X rails
 
-bmountX=barX+((brrOD+1)*2);
+bmountX=max((barX+(bmountGap*2)+(stepX*2)),(barX+((brrOD+1)*2)));
+// max(barX+(bmountGap*2)+(stepX*2),barX+((brrOD+1)*2))
 bmountY=X2X;
 bmountZ=barZ+(1+boltD)+(brrOD/2)+(brrID/2)+(0.25)+boltD+(0.5);
 
