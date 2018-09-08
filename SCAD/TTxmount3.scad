@@ -43,7 +43,7 @@ rotate([-90,0,0])
 ///////stepper
 
 //pully hole
-translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(((bmountX-(barX+(bmountGap*2)))/2)/2),barZ/2])
+translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap)),barZ/2])
 cube([xmountX,pullH+pullS,pullP+pullS], center=true);
 
 

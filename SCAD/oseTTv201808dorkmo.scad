@@ -16,6 +16,7 @@ use <TTcorner.scad>;
 ////***use same printed part for both
 ////**use standard bearing for idler, place inside printed cylinder to match pully OD
 ////*add two set screws onto TTxmount to tighten against plate and angle
+////*render belt
 
 //Y flat bar origin
 translate([-barX/2,0,0])
