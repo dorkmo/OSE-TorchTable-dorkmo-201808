@@ -47,7 +47,7 @@ rotate([90,0,0])
 //set screw hole
 translate([xmountX/2,xmountY,(1+boltD)+barZ-1])
 rotate([90,0,0])
-#cylinder(d=setBoltD, h=xmountY);
+cylinder(d=setBoltD, h=xmountY);
 
 
 ///////stepper
@@ -60,22 +60,23 @@ cube([xmountX,pullH+pullS,pullP+pullS], center=true);
 translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap))-(xmountY/2)+((pullH+pullS)/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
 cube([xmountX,xmountY,stepX], center=true); // should X= xmountX or stepX?
 
+////seat
+translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap))-(xmountY/2)+((pullH+pullS)/2)+(xmountY/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
+rotate([270,0,0])
+#cylinder(d=stepSeatD,h=stepSeatH,$fn=360);
+
 
 translate([xmountX/2,0,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)]){
 ////bore
 translate([0,0,0])
 rotate([270,0,0])
-cylinder(d=stepBoreD,h=xmountY);
+cylinder(d=stepBoreD,h=xmountY); //need to tweak so that bolt for idler will fit in same hole
 
 
 //translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2),-(angX+0.75),barZ/2])
     
 //cylinder(d=pullP,h=angX+0.75);
 
-////seat
-translate([0,0,0])
-rotate([270,0,0])
-cylinder(d=stepSeatD,h=stepSeatH);
 
 ////setpper mount holes
 translate([(stepBoltX/2),0,(stepBoltX/2)])
