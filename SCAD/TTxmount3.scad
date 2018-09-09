@@ -40,6 +40,16 @@ translate([bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+
 rotate([-90,0,0])
     cylinder(d=boltD, h=xmountY);
     
+//set screw nut
+translate([xmountX/2,xmountY-barX,(1+boltD)+barZ-1])
+rotate([90,0,0])
+#cylinder(d=setNutD, h=setNutH, $fn=6);
+//set screw hole
+translate([xmountX/2,xmountY,(1+boltD)+barZ-1])
+rotate([90,0,0])
+#cylinder(d=setBoltD, h=xmountY);
+
+
 ///////stepper
 
 //pully hole
