@@ -24,6 +24,10 @@ cornerBoltOD=0.5;
 boltD=0.5;      //main mounting bolt diameter
 boltL=1.968504;  
 
+setBoltD=0.5;   //thead size  1/2-20
+setNutH=0.448;  //length of threaded dimension
+setNutD=0.75;   //from flat side to flat side
+
 brrOD=0.875;
 brrID=0.375;
 brrT=0.28125;
