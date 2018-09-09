@@ -3,7 +3,7 @@ include <TTvars.scad>;
 use <TTbmount.scad>;
 use <TTxmount3.scad>;
 use <TTx2mount.scad>;
-use <TTcorner.scad>;
+use <TTcorner3.scad>;
 
 //TODO
 ////*belt attachment point
@@ -33,7 +33,8 @@ translate([0,20,0]){
 TTbmount();
 TTxmount();
 translate([0,X2X,0])
-TTx2mount();
+mirror([0,1,0])
+TTxmount();
 
 //Y slider group far
 translate([Y2YA,0,0]){
@@ -41,7 +42,8 @@ mirror([1,0,0]){
 TTbmount();
 TTxmount();
 translate([0,X2X,0])
-TTx2mount();
+mirror([0,1,0])
+TTxmount();
 } //end mirror
 } //end translate
 
@@ -85,15 +87,19 @@ TTbmount();
 translate([Y2YA-(barX/2),-0.5-(barX+(bmountGap*2))/2,0]){
 rotate([0,0,90])
 TTxmount();
-translate([-(angX+0.75),0,0])    
-rotate([0,0,90])
-mirror([1,0,0])    
+translate([0,(xmountX/2)+barX,0])    
+rotate([0,0,0])
+mirror([0,1,0])    
 TTcorner();
 }
 
 translate([barX/2,-0.5-(barX+(bmountGap*2))/2,0])
 rotate([0,0,90])
-TTx2mount();
+mirror([0,1,0])
+TTxmount();
+translate([0,barX+bmountGap,0])
+rotate([0,0,180])
+TTcorner();
 
 //translate([((((barX+(bmountGap*2)))/2)+0.5),0.1,0])
 //cube([barLX,barX,barZ]);   

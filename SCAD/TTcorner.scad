@@ -3,9 +3,9 @@ include <TTvars.scad>;
 TTcorner();
 
 module TTcorner(){
-
+rotate([0,0,90])
 difference(){    
-translate([(barX+(bmountGap*2))/2,-(angX+0.75),-(1+boltD)]) {
+translate([(barX+(bmountGap*2))/2,0,-(1+boltD)]) {
 difference(){    
 cube([((bmountX-(barX+(bmountGap*2)))/2)+(cornerSQ+(cornerT*2)),cornerSQ+(cornerT*2),bmountZ]);    
 
