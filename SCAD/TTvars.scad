@@ -50,9 +50,11 @@ stepBoreD=0.2007874;     //5.1mm shaft bore
 stepBoreL=0.787402;    //20mm
 
 //pully
-pullP=1.253;       //OD of belt around pully GT2 20T ??
-pullH=0.25;            //Height of pulley ?????
+pullP=0.472441;        //ID of belt around pully GT2 20T ??
+pullOD=0.708661;       //OD of sprocket body
+pullH=0.629921;        //Height/Length of pulley
 pullS=0.125;           //pully space
+pullC=0.295276;        //set screw body height
 
 //calculated
 
