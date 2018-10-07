@@ -52,18 +52,24 @@ cylinder(d=setBoltD, h=xmountY);
 
 ///////stepper
 
-//pully hole
-translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap)),(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
-cube([xmountX,pullH+pullS,pullP+pullS], center=true);
+//belt path
+translate([xmountX/2,((xmountY-barX-bmountGap)/2),(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
+#cube([xmountX,beltW+beltG,pullP+pullS], center=true);
 
 //stepper face mount
-translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap))-(xmountY/2)+((pullH+pullS)/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
-cube([xmountX,xmountY,stepX], center=true); // should X= xmountX or stepX?
+translate([xmountX/2,((-barX-bmountGap)/2)+((beltW+beltG)/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
+#cube([xmountX,xmountY,stepX], center=true); // should X= xmountX or stepX?
+
 
 ////seat
-translate([xmountX/2,xmountY-barX-(barX/2)-bmountGap-(bmountX-(((bmountX-(barX+(bmountGap*2)))/2)/2)-(bmountX/2)-((barX/2)+bmountGap))-(xmountY/2)+((pullH+pullS)/2)+(xmountY/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
+translate([xmountX/2,((xmountY-barX-bmountGap)/2)+((beltW+beltG)/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
 rotate([270,0,0])
 #cylinder(d=stepSeatD,h=stepSeatH,$fn=360);
+
+////pully sprocket hole
+translate([xmountX/2,((xmountY-barX-bmountGap)/2)+((beltW+beltG)/2)-stepBoreL,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)])
+rotate([270,0,0])
+#cylinder(d=pullOD+pullG,h=stepBoreL+0.03937,$fn=360);
 
 
 translate([xmountX/2,0,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)]){
@@ -92,6 +98,26 @@ translate([-(stepBoltX/2),0,-(stepBoltX/2)])
 rotate([270,0,0])
 cylinder(d=stepBoltD,h=xmountY);
 }
+
+//need to calculate required socket cap screw length, divisible by 5mm
+//head 3mm tall, depth into motor 4.5max, lock washer 1.1mm, extra space above head 1.0mm
+translate([xmountX/2,xmountY-barX-stepBoltHH-stepBoltWH-stepBoltHG,(1+boltD)+((bmountZ-(1+boltD))/2)-((pullP+pullS)/2)]){
+
+////socket cap screw head holes
+translate([(stepBoltX/2),0,(stepBoltX/2)])
+rotate([270,0,0])
+cylinder(d=stepBoltHD,h=xmountY);
+translate([-(stepBoltX/2),0,(stepBoltX/2)])
+rotate([270,0,0])
+cylinder(d=stepBoltHD,h=xmountY);
+translate([(stepBoltX/2),0,-(stepBoltX/2)])
+rotate([270,0,0])
+cylinder(d=stepBoltHD,h=xmountY);
+translate([-(stepBoltX/2),0,-(stepBoltX/2)])
+rotate([270,0,0])
+#cylinder(d=stepBoltHD,h=xmountY);
+}
+
 
 } //end difference
 } //end translate
