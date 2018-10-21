@@ -24,9 +24,9 @@ cornerBoltOD=0.5;
 boltD=0.5;      //main mounting bolt diameter
 boltL=1.968504;  
 
-setBoltD=0.5;   //thead size  1/2-20
-setNutH=0.448;  //length of threaded dimension
-setNutD=0.866;   //from flat side to flat side
+setBoltD=0.25;   //thead size  1/4-20
+setNutH=0.226;  //length of threaded dimension
+setNutD=0.505;   //diameter from largest point to point
 
 brrOD=0.875;
 brrID=0.375;
@@ -44,7 +44,7 @@ stepBoltHH=0.11811024;  //3.0mm head height
 stepBoltHG=0.0393701;  //1.0mm head height extra gap
 stepBoltWH=0.0433071;   //1.1mm washer height
 stepBoltX=1.22047244;   //31.0mm square from bolt center to center
-stepBoltIn=0.15748031;  //4.0mm bolt depth into stepper
+stepBoltIn=0.177165;  //4.5mm bolt depth into stepper
 stepSeatD=0.86614173;    //22.0mm
 stepSeatH=0.07874016;    //2.0mm
 stepX=1.66535433;        //42.3mm stepper square face 
@@ -76,3 +76,10 @@ bmountZ=barZ+(1+boltD)+(brrOD/2)+(brrID/2)+(0.25)+boltD+(0.5);
 
 xmountX=((bmountX-(barX+(bmountGap*2)))/2)+0;
 xmountY=angX+barX+1.0;
+
+stepBoltL=xmountY-(((-barX-bmountGap)/2)+((beltW+beltG)/2)-stepBoreL+(xmountY/2)-stepBoltIn)-(stepBoltHH+stepBoltWH+stepBoltHG)-barX;
+stepBoltML=floor(stepBoltL/0.19685)*5; //calculated M3 bolt size, override here to pick different size
+stepBoltRL=stepBoltML/5*0.19685;
+
+echo(stepBoltML,"mm M3 socket cap screw");
+echo(bmountZ,"overall height");
